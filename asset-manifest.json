@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/bookggureomi/static/css/main.a275cc40.css",
+    "main.js": "/bookggureomi/static/js/main.b1869885.js",
+    "static/js/787.793bcf88.chunk.js": "/bookggureomi/static/js/787.793bcf88.chunk.js",
+    "index.html": "/bookggureomi/index.html",
+    "main.a275cc40.css.map": "/bookggureomi/static/css/main.a275cc40.css.map",
+    "main.b1869885.js.map": "/bookggureomi/static/js/main.b1869885.js.map",
+    "787.793bcf88.chunk.js.map": "/bookggureomi/static/js/787.793bcf88.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a275cc40.css",
+    "static/js/main.b1869885.js"
+  ]
+}
