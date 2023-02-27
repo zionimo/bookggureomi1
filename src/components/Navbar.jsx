@@ -1,4 +1,3 @@
-import "../styles/ui/Navbar.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { BottomNavigation, BottomNavigationAction } from "@mui/material";
