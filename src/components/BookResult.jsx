@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const BookResult = ({ query }) => {
   const [books, setBooks] = useState([]); // 검색결과를 저장할 state
@@ -49,12 +50,14 @@ const BookResult = ({ query }) => {
           ) : (
             <ul>
               {books.map((book) => (
-                <li key={book.isbn}>
-                  <img src={book.thumbnail} alt={book.title} />
-                  <h3>{book.title}</h3>
-                  <p>{book.authors}</p>
-                  <p>{book.publisher}</p>
-                </li>
+                <Link to="bookdetail" state={{ book: book }}>
+                  <li key={book.isbn}>
+                    <img src={book.thumbnail} alt={book.title} />
+                    <h3>{book.title}</h3>
+                    <p>{book.authors}</p>
+                    <p>{book.publisher}</p>
+                  </li>
+                </Link>
               ))}
             </ul>
           )}
