@@ -4,10 +4,23 @@ const BookDetail = () => {
   const location = useLocation();
   // BookResult.jsx에서 state 받음
   const book = location.state.book;
+  const bookIMG = location.state.bookIMG;
 
   return (
     <div>
-      <img src={book.thumbnail} alt={book.title} />
+      {/* 인라인 css 설정해둠 수정할 것 */}
+      <div style={{ height: 250, background: "white" }}>
+        {book.thumbnail ? (
+          <img
+            src={book.thumbnail}
+            alt={book.title}
+            style={{ width: 150, height: 200 }}
+          />
+        ) : (
+          <img src={bookIMG} alt="" style={{ width: 150, height: 200 }} />
+        )}
+      </div>
+
       <div>
         <h2>{book.title}</h2>
       </div>
@@ -35,12 +48,17 @@ const BookDetail = () => {
 
       <div>
         <h3>책 소개</h3>
-        <span>{book.contents}</span>
+        {book.contents ? (
+          <span>{book.contents}</span>
+        ) : (
+          <span>
+            소개내용이 없습니다. 자세히보기를 통해 책 정보를 확인하세요!
+          </span>
+        )}
       </div>
 
       <div>
         <a href={book.url}>자세히 보기</a>
-        
       </div>
     </div>
   );

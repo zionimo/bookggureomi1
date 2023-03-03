@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import bookIMG from "../img/bookimg.jpg";
 const BookResult = ({ query }) => {
   const [books, setBooks] = useState([]); // 검색결과를 저장할 state
   const [loading, setLoading] = useState(false);
@@ -50,12 +50,28 @@ const BookResult = ({ query }) => {
           ) : (
             <ul>
               {books.map((book) => (
-                <Link to="bookdetail" state={{ book: book }}>
+                <Link to="bookdetail" state={{ book: book, bookIMG: bookIMG }}>
                   <li key={book.isbn}>
-                    <img src={book.thumbnail} alt={book.title} />
-                    <h3>{book.title}</h3>
-                    <p>{book.authors}</p>
-                    <p>{book.publisher}</p>
+                    <div>
+                      {book.thumbnail ? (
+                        <img
+                          src={book.thumbnail}
+                          alt={book.title}
+                          style={{ width: 90, height: 120 }}
+                        />
+                      ) : (
+                        <img
+                          src={bookIMG}
+                          alt=""
+                          style={{ width: 90, height: 120 }}
+                        />
+                      )}
+                    </div>
+                    <div>
+                      <h3>{book.title}</h3>
+                      <p>{book.authors}</p>
+                      <p>{book.publisher}</p>
+                    </div>
                   </li>
                 </Link>
               ))}

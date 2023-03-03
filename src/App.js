@@ -14,6 +14,7 @@ import ProfileModify from "./pages/ProfileModify";
 import NotFound from "./components/NotFound.jsx";
 import ThemaSetting from "./pages/ThemaSetting";
 import BookDetail from "./components/BookDetail";
+import LibraryDetail from "./components/LibraryDetail";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route index element={<Main />} />
           <Route path="bookdetail" element={<BookDetail />} />
           <Route path="library" element={<Library />} />
+          <Route path="librarydetail" element={<LibraryDetail />} />
           <Route path="bookgraph" element={<BookGraph />} />
           <Route path="bookreview" element={<BookReview />} />
           <Route path="profile" element={<Profile />} />
