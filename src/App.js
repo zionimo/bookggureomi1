@@ -1,6 +1,5 @@
 import "./App.css";
 import "./styles/Global.css";
-
 import { Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Main from "./pages/Main";

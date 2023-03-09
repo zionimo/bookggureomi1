@@ -1,10 +1,10 @@
-import BookList from "../components/BookList";
+import BookSearch from "../components/BookSearch";
 
 const Main = () => {
   return (
     <div>
       <div>
-        <BookList />
+        <BookSearch />
       </div>
 
       <div>
