@@ -1,25 +1,39 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import bookIMG from "../img/bookimg.jpg";
 import useBooks from "../hooks/useBooks";
 
 const BookResult = () => {
   const { books } = useBooks();
-
+  console.log(books);
   return (
     // 검색결과가 있으면 결과 출력
     // 검색결과가 없으면 '검색결과가 없습니다'출력
     <ul>
-      {books.map((book) => {
-        const { isbn, thumbnail, title, authors, publisher } = book;
+      {books.map((book, noThumbnail) => {
+        const { isbn, title, thumbnail, authors, publisher } = book;
+
         return (
-          <li key={isbn}>
-            <h2>{title}</h2>
-            <img src={thumbnail} alt={thumbnail} />
-            <p>{authors}</p>
-            <p>{publisher}</p>
-          </li>
+          <Link to="bookdetail">
+            <li key={isbn}>
+              <title>{title}</title>
+              {/* 썸네일 이미지가 있다면 출력, 없다면 noThumbnail 이미지 출력 */}
+              {thumbnail !== "" ? (
+                <img
+                  key={isbn}
+                  src={thumbnail}
+                  alt={title}
+                  style={{ width: 90, height: 120 }}
+                />
+              ) : (
+                <img
+                  src={require("../img/noThumbnail.jpg")}
+                  alt={title}
+                  style={{ width: 90, height: 120 }}
+                />
+              )}
+              <p>{authors}</p>
+              <p>{publisher}</p>
+            </li>
+          </Link>
         );
       })}
       {/* {books.length > 0 ? (
