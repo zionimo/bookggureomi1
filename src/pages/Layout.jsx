@@ -12,7 +12,7 @@ const Layout = () => {
   return (
     <div id="wrapper">
       {/* 뒤로가기 버튼 필요한 페이지에 헤더 노출 */}
-      {!(main || bookgraph || bookreview || profile) ? <Header /> : <></>}
+      {/* {!(main || bookgraph || bookreview || profile) ? <Header /> : <></>} */}
 
       {/* 가운데정렬 태그 */}
       <center>

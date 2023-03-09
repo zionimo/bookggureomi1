@@ -1,5 +1,7 @@
 import { useLocation } from "react-router-dom";
-import { useContext } from "react";
+import { Button } from "@mui/material";
+import Header from "./Header";
+import noThumbnail from "../img/noThumbnail.jpg";
 
 const BookDetail = () => {
   const location = useLocation();
@@ -7,8 +9,16 @@ const BookDetail = () => {
   const book = location.state.book;
   const bookIMG = location.state.bookIMG;
 
+  const saveBook = () => {};
+
   return (
     <div>
+      <Header>
+        <Button onClick={saveBook} size="large" color="inherit">
+          저장
+        </Button>
+      </Header>
+
       {/* 인라인 css 설정해둠 수정할 것 */}
       <div style={{ height: 250, background: "white" }}>
         {book.thumbnail ? (
@@ -18,7 +28,7 @@ const BookDetail = () => {
             style={{ width: 150, height: 200 }}
           />
         ) : (
-          <img src={bookIMG} alt="" style={{ width: 150, height: 200 }} />
+          <img src={noThumbnail} alt="" style={{ width: 150, height: 200 }} />
         )}
       </div>
 
@@ -53,7 +63,7 @@ const BookDetail = () => {
           <span>{book.contents}</span>
         ) : (
           <span>
-            소개내용이 없습니다. 자세히보기를 통해 책 정보를 확인하세요!
+            소개내용이 없습니다. 자세히 보기를 클릭하여 책 정보를 확인하세요!
           </span>
         )}
       </div>

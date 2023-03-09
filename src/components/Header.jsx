@@ -1,11 +1,9 @@
 import { AppBar, Box, Toolbar, Button, IconButton } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import styled from "styled-components";
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import AppStateContext from "../contexts/AppStateContext";
 
-const Header = () => {
+const Header = (props) => {
   const navigate = useNavigate();
 
   // 이전 페이지로 이동 핸들
@@ -13,17 +11,6 @@ const Header = () => {
     navigate(-1);
   };
 
-  // const handleAddBook = { type: "add", text: "담기" };
-  // const handleModifyBook = [
-  //   {
-  //     type: "modify",
-  //     text: "수정",
-  //   },
-  //   {
-  //     type: "delete",
-  //     text: "삭제",
-  //   },
-  // ];
   return (
     <Box sx={{ flexGrow: 1 }}>
       <StyledHeader position="static">
@@ -39,17 +26,8 @@ const Header = () => {
             <ArrowBackIcon />
           </IconButton>
 
-          <div>
-            <Button size="large" color="inherit">
-              저장
-            </Button>
-            <Button size="large" color="inherit">
-              수정
-            </Button>
-            <Button size="large" color="inherit">
-              삭제
-            </Button>
-          </div>
+          {/* 페이지에 따라 다른역할의 버튼 */}
+          <div>{props.children}</div>
         </Toolbar>
       </StyledHeader>
     </Box>

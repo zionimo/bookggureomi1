@@ -13,6 +13,7 @@ const Main = () => {
         {/* 이달의 문구 */}
         <section></section>
       </div>
+      
     </div>
   );
 };
